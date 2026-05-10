@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RS Connect | Reservar</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root{
+            --gold:#c8a96b;
+            --navy:#0b1c3d;
+            --white:#ffffff;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Inter', sans-serif;
+
+            min-height:100vh;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            padding:20px;
+
+            background:
+            linear-gradient(rgba(11,28,61,.88), rgba(11,28,61,.88)),
+            url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
+
+            background-size:cover;
+            background-position:center;
+        }
+
+        .reserve-card{
+
+            width:100%;
+            max-width:550px;
+
+            background:rgba(255,255,255,.10);
+
+            backdrop-filter:blur(16px);
+
+            border:1px solid rgba(255,255,255,.15);
+
+            border-radius:30px;
+
+            padding:50px;
+
+            color:white;
+
+            box-shadow:0 25px 80px rgba(0,0,0,.35);
+
+            animation:fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp{
+
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+
+        }
+
+        h1,h2,h3{
+            font-family:'Playfair Display', serif;
+        }
+
+        .gold{
+            color:var(--gold);
+        }
+
+        .brand{
+            text-align:center;
+            margin-bottom:35px;
+        }
+
+        .brand h1{
+            font-size:2.8rem;
+            margin-bottom:10px;
+        }
+
+        .brand p{
+            color:rgba(255,255,255,.72);
+        }
+
+        .title{
+            margin-bottom:30px;
+            font-size:2rem;
+        }
+
+        .form-label{
+            margin-bottom:10px;
+            font-weight:500;
+        }
+
+        .form-control{
+
+            height:55px;
+
+            border:none;
+
+            border-radius:14px;
+
+            background:rgba(255,255,255,.12);
+
+            color:white;
+
+            padding-left:18px;
+
+            margin-bottom:18px;
+        }
+
+        .form-control:focus{
+
+            background:rgba(255,255,255,.18);
+
+            color:white;
+
+            box-shadow:none;
+
+            border:1px solid var(--gold);
+        }
+
+        .form-control::placeholder{
+            color:rgba(255,255,255,.55);
+        }
+
+        select.form-control{
+            appearance:none;
+        }
+
+        .btn-reserve{
+
+            background:linear-gradient(
+                135deg,
+                var(--gold),
+                #b89250
+            );
+
+            color:white;
+
+            width:100%;
+
+            height:55px;
+
+            border:none;
+
+            border-radius:14px;
+
+            font-weight:600;
+
+            letter-spacing:.5px;
+
+            transition:.35s;
+        }
+
+        .btn-reserve:hover{
+
+            transform:translateY(-3px);
+
+            background:linear-gradient(
+                135deg,
+                #d4b277,
+                #b89250
+            );
+
+            color:white;
+        }
+
+        .back-link{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back-link a{
+
+            color:rgba(255,255,255,.65);
+
+            text-decoration:none;
+
+            transition:.3s;
+        }
+
+        .back-link a:hover{
+            color:var(--gold);
+        }
+
+        @media(max-width:576px){
+
+            .reserve-card{
+                padding:35px 25px;
+            }
+
+            .brand h1{
+                font-size:2rem;
+            }
+
+            .title{
+                font-size:1.6rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="reserve-card">
+
+        <!-- LOGO / BRAND -->
+
+        <div class="brand">
+
+            <h1>
+                RS <span class="gold">CONNECT</span>
+            </h1>
+
+            <p>
+                Plataforma empresarial de reservas premium
+            </p>
+
+        </div>
+
+        <!-- TITLE -->
+
+        <h2 class="title">
+
+            Reservar en
+            <span class="gold" id="empresaNombre">
+                Empresa
+            </span>
+
+        </h2>
+
+        <!-- FORM -->
+
+        <form action="/servicios/reservar" method="POST">
+
+            <input
+            type="hidden"
+            name="empresa"
+            id="empresaInput">
+
+            <!-- NOMBRE -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Tu Nombre
+                </label>
+
+                <input
+                type="text"
+                name="cliente"
+                class="form-control"
+                placeholder="Escribe tu nombre"
+                required>
+
+            </div>
+
+            <!-- SERVICIO -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Servicio Solicitado
+                </label>
+
+                <div class="position-relative">
+
+                    <select
+                    name="servicio"
+                    class="form-control"
+                    required>
+
+                        <option value="" disabled selected>
+                            Selecciona un servicio
+                        </option>
+
+                        <option value="Consultoria">
+                            Consultoría Inicial
+                        </option>
+
+                        <option value="Plan Premium">
+                            Plan Mensual Premium
+                        </option>
+
+                        <option value="Soporte">
+                            Soporte Técnico
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- FECHA -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Fecha Preferida
+                </label>
+
+                <input
+                type="date"
+                name="fecha"
+                class="form-control"
+                required>
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <button
+            type="submit"
+            class="btn-reserve">
+
+                Confirmar Reserva
+
+            </button>
+
+            <!-- BACK -->
+
+            <div class="back-link">
+
+                <a href="/">
+                    ← Cancelar y volver
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        // Leer empresa desde URL
+
+        const params = new URLSearchParams(window.location.search);
+
+        const empresa =
+        params.get('empresa') || 'nuestra empresa';
+
+        document.getElementById('empresaNombre').innerText =
+        empresa;
+
+        document.getElementById('empresaInput').value =
+        empresa;
+
+    </script>
+
+</body>
+
+</html>

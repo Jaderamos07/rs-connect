@@ -18,6 +18,18 @@ app.use('/usuarios', usuarioRoutes);
 app.get('/', (req, res) => {
     res.render('index', { title: 'RS Connect - Inicio' });
 });
+app.get('/reservar', (req, res) => {
+    res.render('reservar');
+});
+
+    // Ruta para procesar el formulario de reserva (POST)
+    app.post('/servicios/reservar', (req, res) => {
+        const { empresa, cliente, servicio, fecha } = req.body;
+        console.log(`Reserva recibida para ${empresa} de parte de ${cliente}`);
+        // Aquí podrías guardarlo en la base de datos si quisieras, 
+        // pero por ahora redirigimos al éxito.
+        res.redirect('/?registro=exito'); 
+    });
 
 // Sincronizar Base de Datos y Arrancar
 const startServer = async () => {

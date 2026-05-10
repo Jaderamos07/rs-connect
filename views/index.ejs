@@ -533,9 +533,7 @@
 
                             <p>Diseño gráfico y branding.</p>
 
-                            <button class="btn btn-light mt-3">
-                                Reservar
-                            </button>
+                            <a href="/reservar?empresa=Creative Studio" class="btn btn-light mt-3">Reservar</a>
 
                         </div>
 
@@ -561,9 +559,7 @@
 
                             <p>Soporte técnico digital.</p>
 
-                            <button class="btn btn-light mt-3">
-                                Reservar
-                            </button>
+                           <a href="/reservar?empresa=Tech Solutions" class="btn btn-light mt-3">Reservar</a>
 
                         </div>
 
@@ -589,9 +585,7 @@
 
                             <p>Consultoría empresarial.</p>
 
-                            <button class="btn btn-light mt-3">
-                                Reservar
-                            </button>
+                            <a href="/reservar?empresa=Business Group" class="btn btn-light mt-3">Reservar</a>
 
                         </div>
 
@@ -617,9 +611,7 @@
 
                             <p>Marketing y publicidad.</p>
 
-                            <button class="btn btn-light mt-3">
-                                Reservar
-                            </button>
+                            <a href="/reservar?empresa=Marketing Pro" class="btn btn-light mt-3">Reservar</a>
 
                         </div>
 
@@ -645,9 +637,7 @@
 
                             <p>Administración y gestión.</p>
 
-                            <button class="btn btn-light mt-3">
-                                Reservar
-                            </button>
+                            <a href="/reservar?empresa=Office Experts" class="btn btn-light mt-3">Reservar</a>
 
                         </div>
 
@@ -673,9 +663,7 @@
 
                             <p>Asesoría financiera.</p>
 
-                            <button class="btn btn-light mt-3">
-                                Reservar
-                            </button>
+                            <a href="/reservar?empresa=Finance Corp" class="btn btn-light mt-3">Reservar</a>
 
                         </div>
 
@@ -879,6 +867,23 @@
 
     });
 
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Detectar si la URL tiene el parámetro registro=exito
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('registro') === 'exito') {
+        Swal.fire({
+            title: '¡Bienvenido a RS Connect!',
+            text: 'Tu cuenta ha sido creada exitosamente.',
+            icon: 'success',
+            confirmButtonColor: '#c8a96b', // Tu color dorado
+            background: '#f8f5ef' // Tu color beige
+        });
+        // Limpiar la URL para que no salga el mensaje al recargar
+        window.history.replaceState({}, document.title, "/");
+    }
 </script>
 
 </body>
