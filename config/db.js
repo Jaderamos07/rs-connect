@@ -9,9 +9,9 @@ const sequelize = new Sequelize(
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
         dialect: 'mysql',
-        logging: false, // Para que no llene la terminal de textos raros
+        logging: false, 
         dialectOptions: {
-            connectTimeout: 60000, // Le damos más tiempo para conectar (1 minuto)
+            connectTimeout: 60000,
             ssl: {
                 rejectUnauthorized: false
             }
