@@ -22,10 +22,13 @@ app.get('/', (req, res) => {
 // Sincronizar Base de Datos y Arrancar
 const startServer = async () => {
     try {
-        await sequelize.sync(); // Crea las tablas automáticamente en Aiven
+        await sequelize.sync(); 
         console.log('Conexión a Aiven exitosa y tablas creadas.');
-        app.listen(process.env.PORT, () => {
-            console.log(`Servidor corriendo en http://localhost:${process.env.PORT}`);
+        
+        const PORT = process.env.PORT || 10000;
+
+        app.listen(PORT, '0.0.0.0', () => {
+            console.log(`Servidor corriendo en el puerto ${PORT}`);
         });
     } catch (error) {
         console.error('Error al conectar:', error);
