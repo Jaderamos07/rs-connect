@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RS Connect | Registro</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root{
+            --beige:#f8f5ef;
+            --navy:#0b1c3d;
+            --gold:#c8a96b;
+            --white:#ffffff;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Inter',sans-serif;
+
+            min-height:100vh;
+
+            background:
+            linear-gradient(rgba(11,28,61,.85), rgba(11,28,61,.85)),
+            url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4?q=80&w=1600');
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            padding:40px 20px;
+        }
+
+        h1,h2,h3,.navbar-brand{
+            font-family:'Playfair Display',serif;
+        }
+
+        .register-card{
+
+            width:100%;
+            max-width:500px;
+
+            background:rgba(255,255,255,.12);
+
+            backdrop-filter:blur(14px);
+
+            border:1px solid rgba(255,255,255,.15);
+
+            border-radius:30px;
+
+            padding:50px;
+
+            box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+            color:white;
+        }
+
+        .brand{
+
+            text-align:center;
+            margin-bottom:35px;
+        }
+
+        .brand h1{
+            font-size:2.7rem;
+            margin-bottom:10px;
+        }
+
+        .gold{
+            color:var(--gold);
+        }
+
+        .brand p{
+            color:rgba(255,255,255,.75);
+        }
+
+        .form-label{
+            margin-bottom:10px;
+            font-weight:500;
+        }
+
+        .form-control{
+
+            height:55px;
+
+            border:none;
+
+            border-radius:14px;
+
+            background:rgba(255,255,255,.12);
+
+            color:white;
+
+            padding-left:18px;
+        }
+
+        .form-control:focus{
+
+            background:rgba(255,255,255,.18);
+
+            color:white;
+
+            box-shadow:none;
+
+            border:1px solid var(--gold);
+        }
+
+        .form-control::placeholder{
+            color:rgba(255,255,255,.55);
+        }
+
+        .btn-register{
+
+            width:100%;
+
+            height:55px;
+
+            border:none;
+
+            border-radius:14px;
+
+            background:var(--gold);
+
+            color:white;
+
+            font-weight:600;
+
+            transition:.3s;
+        }
+
+        .btn-register:hover{
+
+            transform:translateY(-3px);
+
+            background:#b89250;
+        }
+
+        .back-link{
+
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back-link a{
+
+            color:rgba(255,255,255,.75);
+
+            text-decoration:none;
+
+            transition:.3s;
+        }
+
+        .back-link a:hover{
+            color:var(--gold);
+        }
+
+        @media(max-width:576px){
+
+            .register-card{
+                padding:35px 25px;
+            }
+
+            .brand h1{
+                font-size:2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="register-card">
+
+        <div class="brand">
+
+            <h1>
+                RS <span class="gold">CONNECT</span>
+            </h1>
+
+            <p>
+                Crea tu cuenta para acceder a servicios empresariales premium.
+            </p>
+
+        </div>
+
+        <form action="/usuarios" method="POST">
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Nombre Completo
+                </label>
+
+                <input
+                type="text"
+                name="nombre"
+                class="form-control"
+                placeholder="Ingresa tu nombre"
+                required
+                minlength="3">
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Correo Electrónico
+                </label>
+
+                <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="correo@email.com"
+                required>
+
+            </div>
+
+            <button type="submit" class="btn-register">
+                Crear Cuenta
+            </button>
+
+        </form>
+
+        <div class="back-link">
+
+            <a href="/">
+                ← Volver al inicio
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
