@@ -6,7 +6,7 @@ exports.getRegistroForm = (req, res) => {
 };
 
 // Guardar usuario en Aiven
-eexports.crearUsuario = async (req, res) => {
+exports.crearUsuario = async (req, res) => {
     try {
         const { nombre, email } = req.body;
         await Usuario.create({ nombre, email });
